@@ -1,13 +1,22 @@
 #!/bin/bash
-
-FILE_PATH="/dir/file.txt"
-
-if [ -d "$FILE_PATH" ]; then
-    echo "It is a directory"
-elif [ -f "$FILE_PATH" ]; then
-    echo "It is a simple file"
-elif [ -x "$FILE_PATH" ]; then
-    echo "It is an executable file"
-else 
-  echo "Invalid"
+ 
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 "
+    exit 1
 fi
+echo $@
+echo $#
+FILE_PATH="$1"
+ 
+for FILE_PATH in "$@" ; do
+if [ -d "$FILE_PATH" ]; then
+    echo "it is a directory."
+elif [ -x "$FILE_PATH" ]; then
+    echo "it  is an executable file."
+elif [ -f "$FILE_PATH" ]; then
+    echo "it is a regular file."
+ 
+else
+    echo "Invalid"
+fi
+done
