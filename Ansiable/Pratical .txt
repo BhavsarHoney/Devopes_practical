@@ -1,0 +1,532 @@
+Pratical :
+
+ExCERICE 1
+
+There is a yaml file named practice.yaml under /home/bob/playbooks/ directory with a key property1 and value value1.
+
+
+Add an additional key named property2 and value value2.
+
+Ans:
+
+property1: value1
+property2: value2
+
+
+Excerice 2
+
+We have updated the /home/bob/playbooks/practice.yaml file with a dictionary named employee. Add the remaining properties to it using information from the table below.
+
+
+Key/Property	Value
+name	john
+gender	male
+age	24
+
+ans 
+employee:
+  name: john
+  gender: male
+  age: 24
+
+
+Excerise 3
+Now, update the /home/bob/playbooks/practice.yaml file with a dictionary in dictionary.
+
+Add a dictionary named address to add the address information in this file.
+
+
+Key/Property	Value
+city	edison
+state	new jersey
+country	united states
+
+ans
+
+employee:
+  name: john
+  gender: male
+  age: 24
+  address :
+     city: edison
+     state: new jersey
+     country: united states
+
+Excersie : 4
+
+We have updated the /home/bob/playbooks/practice.yaml file with an array of apples. Add a new apple to the list to make it a total of 4.
+
+- apple
+- apple
+- apple
+- apple
+
+Excersie : 5
+
+In /home/bob/playbooks/practice.yaml, add two more values to make it 
+
+- apple
+- apple
+- apple
+- apple
+- apple
+- apple
+
+Excersie : 6
+
+We have updated the /home/bob/playbooks/practice.yaml file with some data for apple, orange and mango. Just like apple, we would like to add additional details for each item, such as color, weight etc. Modify the remaining items to match the below data.
+
+
+orange
+
+color	weight
+orange	90g
+
+
+mango
+
+color	weight
+yellow	150g
+
+ans
+- name: apple
+  color: red
+  weight: 100g
+- name: orange
+  color: orange
+  weight: 90g 
+- name: mango
+  color: yellow
+  weight: 150g
+
+Excersie :7
+We have updated the /home/bob/playbooks/practice.yaml file with the key name and value apple. Add some additional properties (given below) to the dictionary.
+
+
+name= apple
+color= red
+weight= 90g
+
+ans
+
+name: apple
+color: red
+weight: 90g
+
+Excersie :8
+
+We have updated the /home/bob/playbooks/practice.yaml file with a dictionary named employee. We would like to record information about multiple employees. Convert the dictionary named employee to an array named employees
+
+ans 
+
+employees:
+  - name: john
+    gender: male
+    age: 24
+
+Exersie :9
+Update the /home/bob/playbooks/practice.yaml file to add an additional employee (below the existing entry) to the list using the below information.
+
+
+Key/Property	Value
+name	sarah
+gender	female
+age	28
+
+Ans 
+employees:
+  - name: john
+    gender: male
+    age: 24
+  - name: sarah
+    gender: female
+    age: 28
+
+Exersie :10
+We have updated the /home/bob/playbooks/practice.yaml file to add some more details. Now add the pay information. Remember, while address is a dictionary, payslips is an array of month and amount.
+
+
+payslips
+
+month	amount
+june	1400
+july	2400
+august	3400
+
+Ans
+
+We have updated the /home/bob/playbooks/practice.yaml file to add some more details. Now add the pay information. Remember, while address is a dictionary, payslips is an array of month and amount.
+
+
+payslips
+
+month	amount
+june	1400
+july	2400
+august	3400
+
+Ans 
+employee:
+  name: john
+  gender: male
+  age: 24
+  address:
+    city: 'edison'
+    state: 'new jersey'
+    country: 'united states'
+  payslips:
+   - month: june
+     amount: 1400
+   - month: july
+     amount: 2400
+   - month: august
+     amount: 3400
+
+Section : 3
+
+Inventory
+
+1. We have a sample inventory file called inventory under /home/bob/playbooks directory. It has 3 servers listed, add another server called server4.company.com in this file.
+
+Ans 
+server1.company.com
+server2.company.com
+server3.company.com
+server4.company.com
+
+2 We have reset the /home/bob/playbooks/inventory inventory file, and added the aliases named web1, web2 and web3 for the first three hosts respectively. Update this inventory file to add an alias called db1 for server4.company.com host.
+
+web1 ansible_host=server1.company.com
+web2 ansible_host=server2.company.com
+web3 ansible_host=server3.company.com
+db1  ansible_host=server4.company.com
+
+
+2.As per the details given in the table below, you can see that, the web servers are linux based hosts and the db server is a Windows machine.
+
+
+Update the inventory /home/bob/playbooks/inventory to add a similar entry for server4.company.com host. Find the required details from the table below.
+
+
+---------------------------------------------------------------------------
+|  Alias |        HOST         | Connection | User          | Password     | 
+---------------------------------------------------------------------------
+|  web1  | server1.company.com |    ssh     | root          | Password123! |
+---------------------------------------------------------------------------
+|  web2  | server2.company.com |    ssh     | root          | Password123! |
+---------------------------------------------------------------------------
+|  web3  | server3.company.com |    ssh     | root          | Password123! |
+---------------------------------------------------------------------------
+|  db1   | server4.company.com |    winrm   | administrator | Dbp@ss123!   |
+------------------------------------------
+
+
+Ans 
+
+web1 ansible_ssh_host=server1.company.com ansible_connection=ssh ansible_s$
+web2 ansible_ssh_host=server2.company.com ansible_connection=ssh ansible_s$
+web3 ansible_ssh_host=server3.company.com ansible_connection=ssh ansible_s$
+db1 ansible_host=server4.company.com ansible_connection=winrm ansible_user$
+ansible_winrm_server_cert_validation=ignore
+
+
+3.
+We have updated the /home/bob/playbooks/inventory file and added a group called web_servers for web servers. Similarly, add a group called db_servers for database servers.
+
+Ans
+
+[db_servers]
+db1
+
+4.
+Let us now create a group of groups. Create a new group called all_servers and add the previously created groups web_servers and db_servers under it.
+
+Ans
+
+[all_servers:children]
+web_servers
+db_servers
+
+5.
+Update the /home/bob/playbooks/inventory file to represent the data given in the below table in Ansible Inventory format.
+
+
+-------------------------------------------------------------------
+| Server Alias |  Server Name  |  OS    |     User      | Password |
+-------------------------------------------------------------------
+| sql_db1      | sql01.xyz.com | Linux  |     root      | Lin$Pass |
+-------------------------------------------------------------------
+| sql_db2      | sql02.xyz.com | Linux  |     root      | Lin$Pass |
+-------------------------------------------------------------------
+| web_node1    | web01.xyz.com | Win    | administrator | Win$Pass |
+-------------------------------------------------------------------
+| web_node2    | web02.xyz.com | Win    | administrator | Win$Pass |
+-------------------------------------------------------------------
+| web_node3    | web03.xyz.com | Win    | administrator | Win$Pass |
+
+
+
+Group the servers together based on this table
+
+
+--------------------------------------------------------
+|    Group         |  Members                          |
+--------------------------------------------------------
+|    db_nodes      |  sql_db1, sql_db2                 |
+--------------------------------------------------------
+|   web_nodes      |  web_node1, web_node2, web_node3  |
+--------------------------------------------------------
+|    boston_nodes  |  sql_db1, web_node1               |
+--------------------------------------------------------
+|    dallas_nodes  |  sql_db2, web_node2, web_node3    |
+--------------------------------------------------------
+|   us_nodes       |  boston_nodes, dallas_nodes       |
+-------------------------------------------------------
+
+ans
+
+[db_nodes]
+sql_db1
+sql_db2
+
+[web_nodes]
+web_node1
+web_node2
+web_node3
+
+[boston_nodes]
+sql_db1
+
+
+[dallas_nodes]
+sql_db2
+web_node2
+web_node3
+
+[us_nodes:children]
+boston_nodes
+dallas_nodes
+
+Section 
+Variable 
+1. The /home/bob/playbooks/playbook.yaml playbook is adding a name server entry in /tmp/resolv.conf sample file on localhost. The name server information is already added to the /home/bob/playbooks/inventory file as a variable called nameserver_ip.
+
+
+Replace the hardcoded ip address of the name server in this playbook to use the value from the variable defined in the inventory file.
+Ans
+
+---
+- name: 'Add nameserver in resolv.conf file on localhost'
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: 'Add nameserver in resolv.conf file'
+      lineinfile:
+        path: /tmp/resolv.conf
+        line: 'nameserver  {{  nameserver_ip  }}' 
+2.
+We have updated the /home/bob/playbooks/playbook.yaml playbook to add a new task to disable SNMP port on localhost. However, the port is hardcoded in the playbook. Update the playbook to replace the hardcoded value of the SNMP port to use the value from the variable named snmp_port, defined in the inventory file.
+
+---
+- name: 'Add nameserver in resolv.conf file on localhost'
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: 'Add nameserver in resolv.conf file'
+      lineinfile:
+        path: /tmp/resolv.conf
+        line: 'nameserver {{  nameserver_ip  }}'
+    - name: 'Disable SNMP Port'
+      firewalld:
+        port: '{{  snmp_port  }}'
+        permanent: true
+        state: disabled
+
+3.
+We have reset the /home/bob/playbooks/playbook.yaml playbook. Its printing some personal information of an employee. We would like to move the car_model, country_name and title values to the respective variables, and these variables should be defined at the play level.
+
+
+Add three new variables named car_model, country_name and title under the play and move the values over there. Use these variables within the task to remove the hardcoded values.
+
+Ans
+
+---
+- hosts: localhost
+  vars:
+    car_model: 'BMW M3'
+    country_name: USA
+    title: 'Systems Engineer'
+  tasks:
+    - command: 'echo "My car is {{ car_model }}"'
+    - command: 'echo "I live in the {{ country_name }}"'
+    - command: 'echo "I work as a {{ title }}"'
+
+cd /home/bob/playbooks
+ansible-playbook -i inventory playbook.yaml run
+
+4.
+The /home/bob/playbooks/app_install.yaml playbook is responsible for installing a list of packages on a remote server(s). The list of packages to be installed is already added to the /home/bob/playbooks/inventory file as a list variable called app_list.
+
+
+
+Right now the list of packages to be installed is hardcoded in the playbook. Update the /home/bob/playbooks/app_install.yaml playbook to replace the hardcoded list of packages to use the values from the app_list variable defined in the inventory file. Once updated, please run the playbook once to make sure it works fine.
+
+Ans
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install applications
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "{{ app_list }}"
+
+Ans
+cd /home/bob/playbooks
+ansible-playbook -i inventory app_install.yaml
+
+5.
+The /home/bob/playbooks/user_setup.yaml playbook is responsible for setting up a new user on a remote server(s). The user details like username, password, and email are already added to the /home/bob/playbooks/inventory file as a dictionary variable called user_details.
+
+
+
+Right now the user details is hardcoded in the playbook. Update the /home/bob/playbooks/user_setup.yaml playbook to replace the hardcoded values to use the values from the user_details variable defined in the inventory file. Once updated, please run the playbook once to make sure it works fine.
+
+ans
+- hosts: all
+  become: yes
+  tasks:
+    - name: Set up user
+      user:
+        name: "{{ user_details.username }}"
+        password: "{{ user_details.password }}"
+        comment: "{{ user_details.email }}"
+        state: present
+cd /home/bob/playbooks
+ansible-playbook -i inventory user_setup.yaml
+
+
+Section 6
+
+1.Update the playbook /home/bob/playbooks/playbook.yaml to append the /var/www/html/index.html file on all web nodes. The line needs to be added is Welcome to ansible-beginning course, create the index.html file if doesn't exist.
+
+
+
+Use the lineinfile module.
+
+ANS
+- name: 'hosts'
+  hosts: all
+  become: yes
+  tasks:
+    - name: 'Execute a script'
+      script: '/tmp/install_script.sh'
+    - name: 'Start httpd service'
+      service:
+        name: 'httpd'
+        state: 'started'
+    - name: "Create or update index.html file."
+      lineinfile:
+        path: /var/www/html/index.html
+        line: "Welcome to ansible-beginning course"
+        create: true
+
+2. Update the playbook /home/bob/playbooks/playbook.yaml to add a new task to create a new user called web_user.
+
+Use the user module for this task. You can find the user details as below.
+
+Username: web_user
+uid: 1040
+group: developers
+
+ans 
+---
+- name: 'hosts'
+  hosts: all
+  become: yes
+  tasks:
+    - name: 'Execute a script'
+      script: '/tmp/install_script.sh'
+    - name: 'Start httpd service'
+      service:
+        name: 'httpd'
+        state: 'started'
+    - name: "Update /var/www/html/index.html"
+      lineinfile:
+        path: /var/www/html/index.html
+        line: "Welcome to ansible-beginning course"
+        create: true
+    - name: 'Create a new user'
+      user:
+        name: 'web_user'
+        uid: 1040
+        group: 'developers'
+
+3. 
+Update the playbook /home/bob/playbooks/playbook.yaml to add a new task to start httpd service on all web nodes defined in /home/bob/playbooks/inventory file.
+
+
+Use the service module.
+
+Ans
+
+---
+- name: 'hosts'
+  hosts: all
+  become: yes
+  tasks:
+    - name: 'Execute a script'
+      script: '/tmp/install_script.sh'
+    - name: 'Execute a service'
+      service: 
+          name: 'httpd'
+          state: 'started'
+
+Collection
+
+1.You are given access to a lab environment with a machine (i.e student-node) that has Ansible installed. On this machine, there's a /home/bob/playbooks/requirements.yml file that lists several collections required for a project. Your task is to install all the collections listed in the /home/bob/playbooks/requirements.yml file using the correct command.
+
+cd playbooks/
+ansible-galaxy collection install -r requirements.yml
+
+2.You've been informed about a new Ansible Collection named networking_tools under the namespace company_xyz. This collection contains specialized modules for network automation. You need to write a playbook that installs this collection and then uses a custom module named configure_vlan from it to set up VLAN 10 with the name Admin_VLAN.
+
+
+Complete the playbook located at /home/bob/playbooks/playbook.yml to correctly install the networking_tools collection and utilize the configure_vlan module. You just need to fill the placeholders in this playbook.
+
+
+Please note that, you need not to run this playbook for testing, just make the required changes to fill the placeholders correctly.
+
+
+Ans
+
+-
+- hosts: localhost
+  tasks:
+    - name: Install the networking_tools collection
+      ansible.builtin.ansible_galaxy_collection:
+        name: company_xyz.networking_tools
+        source: https://galaxy.ansible.com
+
+- hosts: switches
+  collections:
+    - company_xyz.networking_tools
+  tasks:
+    - name: Configure VLAN 10
+      configure_vlan:
+        vlan_id: 10
+- hosts: switches
+  collections:
+    - company_xyz.networking_tools
+  tasks:
+    - name: Configure VLAN 10
+      configure_vlan:
+        vlan_id: 10
+        vlan_name: Admin_VLAN
+
+
+
+
+

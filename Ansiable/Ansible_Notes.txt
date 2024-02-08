@@ -1,0 +1,427 @@
+Ansible 
+
+section 1
+
+what is Ansible ?
+ Asnible is IT Automation Tools
+ use -ansible is use manage one or many computers at once
+ can do tasks like configuration managemnt ,application deployment ,infreastucture setup etc.
+The detils about the resources to manage(hosts) is kept in file called Inventory.
+The Instruction to run on hosts are kept in a YAML files called Playbooks.
+
+when Playbooks is run ,connection is made to the host System and playbook instuction are executed on the hosts.
+
+How ansible Works?
+
+ssh
+controller  ---host 
+controller -- where we create playbook and host 
+host --  physical server  cloude 
+
+Ansible Configuration Files :
+
+etc/ansible/ansible.cfg
+
+what is YAML ?
+
+Servers:
+   - name:Server1
+     owner:JOhn
+     created:1232012
+     status:active
+
+key value pair 
+
+Fruit:apple
+vegetables :caroot
+Liquid:Water 
+Meat: Chiken
+
+Array/List 
+
+Fruits:
+- orange 
+- Apple 
+- Banana
+
+Vagetables:
+- Cauliflower
+- Carrot 
+- Tomato
+
+Dictionary/Map
+
+Banana:
+  Calories: 105
+  Fat:0.4g
+  Carbs: 27g
+
+Grapes:
+   Calories:62
+   Fat: 0.3g
+   Carbs:27g
+
+
+key value/dictionary/List 
+
+Fruits :
+
+ - Banana :
+       Calories :105
+       Fat :o.4g
+       Carbs: 27g
+ - Grape :
+       Calories:62
+       Fat: 0.3g
+       Carbs:27g
+
+Dictionary -unordered
+List-OrDERD
+
+
+Section 3:
+
+inventory
+
+Linux -SSH
+Windows-PowerShell Remoting
+
+Ansible is Agentless
+
+File Location : etc/ansible/hosts
+
+parameters 
+
+ansible_host 
+ansible_connection -ssh/winnrm/localhost
+ansible_port -22/5986
+ansible_user -root/administator
+ansible_ssh_pass -Password
+
+
+Different Inventory Format Types
+
+Ini -The Ini format is the Simplest and most staringhtforward 
+Yaml -The yaml format is more structured and flexiable that the Ini
+
+
+grOUPING AND PARENT CHAID
+
+[PARENT:CHILDrean]
+web1
+web2
+
+Variable
+Stores information that varies with each host
+
+Jinja2 Templating {{ }}
+
+
+
+Variable Types 
+
+String Variable 
+String Variable in ansiable are Sequesnce of characters.
+
+They can be defind in a playbook inventory or passed as command line arguments.
+
+Nubmber Variables
+Nubmbers Variable in Ansible can Hold integer or floting values
+They can be used in mathematical operations.
+
+Boolean Variable
+Boolean Variable in Ansible can hold either true or false.
+
+They are often used in Conditonal statements.
+
+List Variable 
+
+List Variable in Ansiable can hold an ordered Collection of Values.
+The Value can be any type.
+
+Dictionary Variables 
+Dictionary Variables in Ansiable can hold a collection of key-value pairs.
+The keys and values can be of any type.
+
+ Variable Precedence
+
+Role Defaults  ---lowest pirority
+Group Vars     
+HostVars
+Host Facts
+Play Vars
+Role Vars
+Include Vars
+Set Facts
+Extras Vars ---Highest Pirority
+
+Variable Scopes -
+
+Host 
+play
+Global
+
+Magic Variable
+
+if we Create one one Variable on one Host it is not Avaliable on 2 host
+if we want to get that variable use Magic Variable
+
+'{{  hostvars['web'].dns_server}}'
+
+groups
+
+{{group['americas']}}
+
+group_names
+{{group_names}}
+
+{{inventory_hostname}}
+
+Section 5
+Playbook
+
+Playbook -A single YAML file
+ play -defines a set of activites(task) to be run on hosts
+  task -An Action to be perfomed on the host
+   Execute a command 
+   Run a Script
+   install a package 
+   Sutdown/Restart
+
+Run
+ Syntax :
+   ansible-playbook <playbook file name>
+
+
+verifying Playbooks
+
+Check mode 
+ Ansible's "dry run where no actual changes are made on hosts
+ Allow preview of playbook changes without appling them
+  Use the --check option to run a playbook in check mode
+  Ensures Playbook syntax is erro-free
+use the --syntax-check oprtion 
+
+diff mode
+
+Provide a before and After comparision to playbook changes
+Understands and Verify the impact of Playbook changes before appling them
+Utilize the --diff option to run a playbook in diff mode
+
+
+Ansiable -Lint
+Ansiable lint is a command-line tool that performs linting on Ansiable playbooks, roles and collections
+It Checks your code forpotential error ,bugs stylistic error and suspicious constucts.
+Its askin to having a Seasoned Ansiable mentors guiding you ,providing Valiable insights and Catching issuse that might have Slipped past your notice
+
+
+COnditionals
+
+when 
+  == equailty
+  and oprator 
+  or oprator
+
+Loops
+
+With_*
+ With_items - itertare for items
+ WITH_file - Itertat the file
+ with_url - itertor the url
+ with _Mongodb- connect multiple  mongo db
+
+
+
+Section 6
+
+Ansiable modules
+ System 
+   modifiying user group on system 
+ Commands---- execute Script  command or shell
+ Files -help with work file 
+ Database ----work with datatbases
+ Cloud ----work with colude like aws aure ans docker 
+ Windows ---work with windows
+ more .
+
+Command 
+Executes a command on a remote node
+
+parameters 
+chdir  cd into this directory before running the commands
+create
+executables
+free_form
+removes
+warn  
+
+Script 
+Runs a local Script on a remote node after tranferring it
+
+1.Copy script to remote system
+2.Execute script on remote systems
+
+
+Service 
+Mange Service -start stop Restart
+
+
+idempotency
+
+start the service httpd  Ensure that httpd is not  sarted
+
+Started the service httpd 
+ 
+
+Lineinfile
+
+Search for a line in a file and replace it or add it if it doesn;t exist.
+
+Ansiable Plugin
+
+A pieace of code that modifies the functionality of Ansiable
+Enhace various Aspects of Ansiable
+Flexiable and powerful way to customizes
+
+inavatory plugin
+Module Plagin
+Action Plugin
+Callback Plugin
+
+How Ansiable Plugin OverCome the Mentioned Challenges?
+
+Dynamic Inventory Plugin
+Module Plugin
+Action Plugin -- load Blancer mangem
+
+other Plugin 
+ Lookup Plugin
+ Filer Plugin
+ConnCATION Plugin
+
+
+MoDLEUEs & Plugins Index
+
+Comprehenshive resoures offering detaild infomation on ansiable's available modules and plugin
+
+Navigate Ansiable's extensive modules and point ,helaping you find the right tool for optimal automation
+
+Without an index tracking and understaning the numerous Ansiable modules and plugin would be difficult
+
+keyfeatures 
+Serch &Features
+Detailed Documantaion
+Version Compatibility
+Coumunity 
+
+Ansiable Handlers
+
+Tasks triggered by events/notification
+
+Defined in playbook,executed when notified by a task
+
+Manage action based on System state/configuration changes
+
+
+Ansiable Roles
+
+Find Roles
+ ansible-galaxy search mysql
+
+use Role
+ store in etc/ansiable/roles/...
+
+List Roles
+ansiable-galaxy list
+
+Ansibel Collection
+
+packages ans distibute modules,roles, plugin etc..
+ self contained
+  community and vendor-created
+
+Benefits
+Expanded Functionality
+Modularity and Reuseablity
+Simplified distibution and managment
+
+
+jinja2Templating
+
+{{}}
+ {{ a |upper}}
+ 
+{{ "/etc/host" |basename }} hosts 
+{{"c:/windows/hosts"| win_basename}} - hosts
+ {{"c:}}
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
