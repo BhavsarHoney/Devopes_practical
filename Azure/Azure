@@ -1,0 +1,958 @@
+
+AZures
+
+Imagin seting up data centers in differet regions around the world 
+ Azures provides 60+regions around the world 
+Regions: Specific geographical location to host your resoures
+Advantages:
+high AvAIBLITY
+lOw Latency
+GLobal Footprint 
+Adhere to government regulations
+
+Availability ZOnes
+
+Azures Virtual MAchines
+Incoporate DAta Centers, application are deployed to physical Servers
+when do you deploy application in the cloude
+ -rent virtual servers
+ -virtual MAchines -VIrtual service in Azures
+ -Azures Virtual Machines -Provision &Manage Virtual Machines
+  
+Azure Virtual Machines -Fetures
+Create and MAnage Lifecyle of Virtual Machine(vM) instances
+LOad bALANcing and auto Scaling for multiple VM instance
+Attach Storage to your VM instances
+MAage network connectivity and configuration for your VM instances
+
+Azure Virtual Machine -key concepts
+
+Image - CHoose OPerating System and SOftware
+vm FAmily - CHoose the right family of hardware (Genral purpose or COmpute/storage/Memory optimized or GPU or HPC
+VM SIze(B12s,B2s,..)
+Disks --Attach Virtual Disks to VMS(BLock Storage)
+
+
+Availabity
+Are the Application Available when the users need them?
+Percentage of time an application provides the operations excepted of it
+example: 99.99% availability also called four 9's avilability
+
+Single INstance Vm:
+Premium SSD or ULTRA dISK :99.9%
+Standard SSD Managed Disks: 99.5%
+Standard HDD MAnaged Disks:95%
+
+Two or more instance in same AVailability Set 99.95%
+Fault DOmains: Group of VMS sharing a common power source and network switch
+Update Domains :Group of VMS that are rebooted(updated) at the same time
+
+Two or more instance in two or more Availabity Zones in the same Azure region :99.99%
+
+
+Virtual MAchine Scale Set
+HOw do you Simplify creation and managment of multiple VMS?
+Enter virtual machine Scale sets
+Allow you to create and manage agroup of Azure VMS
+Provide high availability to your application
+(optional) Add a LOad balancer
+(optional_ DIstribute VM instance across Multipal AZs
+(where availble)
+Supports Manual Scaling and auto Scling
+Support up to 1000 VM instance
+
+Azure Virtual Machines--more Fetures
+
+Static IP address -- Assign a fixed IP address to your Vm. public IP address are changed per Ipper hour
+ *when we start and stop vm ip addresss change so staic id is that it can not change the ip addresses
+ is called static ip address
+ 
+ Azure Monitoring --  MOnitoring for your Azure Vms
+ 
+ Dedicated HOsts --Physical servers dedicated to one Customer
+ 
+ Cretae cheper ,temporary instance for non critical workloads --azure SPot INstance
+
+Reserve copute instance ahead od time -- Reserved VM Instances
+
+
+Designing good Solution with VMS
+
+Availability Are the appliction available when your users need them ?   Availablity sets and Scale sets
+
+Scalability can we handle a growth in users ,trafic or data Size without any drop in performance ? Vm size scale sets and load Balancers
+
+Resilience Ability of system to provides accepptable behavior even when one or more parts the system fails
+
+Geo-DIstibution Distibute application across regions and zones
+
+DIsaster recovery How to keep your systems running in face of disasters? site recovery
+
+Managing costs you want to keep costs low  --Auto Scaling(ELasticity) REservation ,spot instances
+
+Security Secure your VMS Dedicated Hosts (MOre to come..)
+
+used Terminology
+
+IAAS(Infrastructure as a Service)
+
+
+Container - Docker 
+Create DOcker images for each microservice
+Docker image has all needs of a microservice:
+APplication Runtime(JDK or python or NOdejs)
+Application code and Dependancies
+VMS vitualize Hardware while containers vitualize Os
+Runs the same way on way on any infrastructure:
+your local machine
+corporate data center
+cloud
+
+Advantages
+Docker COntainers are light weigh
+Compared to vitual MAchines as they do not have a GUest Os
+Docker provides isolation  for containers
+Docker is CLode neutral
+
+Container Orchestration
+Requirements: I want 10 instances of MIcroserice A container,15 instances of Microservice B container and ...
+TYpes Features:
+Auto Scaling :Scale container based on demand
+Service Discovery -Help microservice find one other
+Load Balancer --Distribute load among multiple instances of a microservice.
+Self Healing --Do health checks and replace failing instances
+Zero Downtime Deployments -Release new version without Downtime
+
+container Orchestration --AKS and service Febric
+Using a COntainer Ochestrator
+1.Create a cluster
+2. Deploy & Orchestrate Microservices
+
+Azure Services:
+
+Azure Kubernetes Service: Managed Kuberbetes Service
+Azure Service FAbric : Microsoft's COntainer orchestator
+
+Serverless 
+WHTa if you don't need to worry about servers and focus on your code
+Enter Severless
+ Remember:Serverless does not mean "No serverS"
+ 
+ Serverless for me
+  ---you don't worry about infrastructure(Zero visibilty into infrastructure)
+MOst important :pay for use
+You focus on code and the cloude managed service takes care of all needed to scale your code to serve milions of requensts!
+
+Azure functions
+YOu don't worry about servers or scaling or availability
+you only worry about your code
+you pay for what you use
+number of requests
+Duration of requestes
+Memory consumed
+Support c#,python,javascript, TYpeScripet and java
+
+Saas (Software as a Service)
+Cetrally hosted Software (Mostly on the cloud)
+Offered on a subscription basis( pay-as-you-go)
+Example:
+ Email,calendarings & office tools (such as outlook 365, Microsoft Office 365,gmail,googal Docs)
+
+Custommer relationships management (CRM) ,entrprise resource planning (ERP) and Document managment tools
+
+
+Azure CLoud Service CAtagories -- Scenarios 
+
+Laas  or PaaS or SaaS
+Deploy Custom Appliction in virtual MAchines --laaS
+Using Gmail -- SaaS
+Using Azure App Service to deploy your app ---PaaS
+Cusomer is resposiable for Os updates when suing PaaS --False
+Customer is resposiable for availbity when using PaaS --False
+
+In PaaS customer has access to VM instances --FAlse
+in Paas customer can customize OS and install custom software --false
+IN PaaS Customer can COnfigure auto Scaling needs --True
+In PaaS customer can configure hardware needs(memory ,cpu ,etc) --True
+
+PaaS servie only offer COmute service --FAlse
+
+Storage Types -Block FIle object
+
+WHta is the type of Storage of your Hard DIsk?
+Block Storage
+
+you have Created a file share to SHare a set of files with your colleagues in a enterprise.WHat type of Storage ar you using ?
+FIle Storage
+
+yOU want  to be able to upload/dowanload objact using REST API without mounting them onto your VM.what types of storage are you using?
+Object STorage
+
+AZure Storage
+
+Managend CLoude Storeage SOlution
+HIgly availablle,durable and Massively Scalble(UPto few PetaBytes)
+
+COre Storage Services
+Azure DIsks: Block Storage (Hard disks) for Azure VMS
+AZURE FIES:FIle SHares for cloud and on-premises
+Azure Blobs : Object store for text and Binarey data
+Azure queues :Decouple appliction using messaging
+Azure TAbles: NOSQL store(very Basic)
+Prefer azure comos DB for NoSql
+
+aZURE sTORAGE -dATA rEDUndancy
+option     ----Redundancy    ----DIscussion
+LOcally redundantStorage(LRS) Three synronous copies in same data center   ---   Least Expensive and least availability
+
+ZOne-redundant Storage --Three syncronous copies in three AZs in the primary region 
+
+GEo redundant Storage(GZRS)  LRS+ ASYNCROnous copy of secondary region (three more copies using LRS) 
+
+GEO-ZONE reduandt Storage(GZRS) ZRS+ Asynocrous copy to secondary region (three more copies using LRS)   ---MOST expensive and highest availabilty  
+
+
+REgion pairs 
+DAta copies across regions == high avilablity +HIgh durability
+
+Azure makes it easy to distribute data across regions( while retaaining data in same grography ) through region pairs
+
+Example: Centaral india & south india ,EastUS & West Us
+
+
+
+Mangend and unmanaged Block Storage
+
+Block Stroage
+
+Use case : Hard- disks attached to your computer
+
+Typically ,one block storage device can be connected to one vitual server
+you can connect multipal block storage devices to one vitual server
+
+Azure DIsks Storage
+
+DIsk Storage : Disks for Azure VMs
+TYpes:
+
+STandard HDD:
+REcommand For backup,non -critical ,infrequenst access
+Standard SSD :Recommand for Web server ,lighthly used entraprise application and dev/test enviroment
+Premium SSD DIsks: Recommand for production and performance sensitive workloads 
+ulra disks (ssd) recommand for IO-intensive workloads such as SAP HANA ,top tier databases (for example ,sql,Oracal ) and other transaction-hevy workloads
+preminum and ultra provide very high availabilty
+
+Managend Disks are easy to use
+Asures handles storage
+HIgh fault tolerance and availabilty
+
+Umanaged DIsks are old  triky (AVoid them if you can)
+
+YOu need to manage STorage and Stroage Account
+
+
+Azure FIles 
+Media workFlows need huge shared storage for things like video edititng
+Enterprice users need a quick way to shares files in a Secure and organized way 
+
+
+Azure Files 
+Managed FIle Shares 
+Connect From multipal devices concurrently
+From clode or on-premises
+from Different Os: WIndows linux ANd macos
+Suppoert Server Message Block(SMB) and network file  system(NFS) protocols
+
+UseCAse :SHred files between multipal VMS (Example :configuration files)
+
+
+Azure FIle Sync 
+
+Window file server: crete file shares on premises
+Azure FIles: Create file on AZure
+
+Storing files in Azure files is cheper & easier to manage But windows file server provides flexiable connectivity options to on-premise apps and users
+
+HOw about having same connectivity to files shares for on premises apps and resources while storing them in azure  FIles?
+
+Azure FIle Sync : FIle SHares crated in Azure FIle.And Retain FLexibility and compatibity of windows file server
+option: Keep cache of frequently accessed files or have a full local copy
+Supports multipal protocol :SMB NFS AND FTPS
+Advantage: CHeper,easier to manage and can be used as cloude-side backup(BUsiness continutity and disaster recovery)
+
+
+Azure Blob Storage: Objact Storage in Azure
+Structure : Storage Account>COntainer> bolb
+Store massive volume of unstructured data
+- store all files type -text binary backup and archive
+Media files and archive,application package and logs
+Backup of your databases or storage desives
+
+THree types of Blobs
+Block blobs : Store text or binary files(video, archives etc)
+Append blobs : Store log files( Ideal for append orations)
+Page blobs: Foundation for Azure laas Disks(512 -byte pages up to 8Tb)
+
+Azure DAta LAke Storage GEn3 : Azure blob Storage Enhanced
+Designed For enterprice big data analytics(Exabytes, hierarchical)
+LOw-cost,tired storage with high availability/disaster recovery
+
+access tires:
+
+Hot: store frequently accessed data
+COol : INfrequently accessed data store for 30 dyes
+archive: rarely accessed data stored for min 180dayes
+  Lowest : storage cost but hightest access cost
+   Access latency : in hours
+   to access: Rehydreate: change access tier to hot or cool or 
+   copy to another blob with access tier hot or cool
+   You can change access tiers of an objact at any point in time
+
+Azure Storage Explores
+AZure Storage Explorer : MAnage Azure Storage Resources from desktop
+Free tool : Supported on windows ,macos and Linux
+INtegrateds with 
+AZures Storage Blobs ,files queue and tables
+Azures Data lAKE sTORAGE
+Azures MAnaged Disks
+
+Features: Upload DOWNLOAD FILES, managaes permissions
+Extention available : DAta FActory extn - move data from AWS s3 to Azure Storage
+Very similr to STorage Explore and Storage Browser on AZure Portal
+
+( ALternative ) AZcopy : command-line utility
+COpy files from local MAchine or other cloud storage to Azures Storage
+Azure Storage Explorer uses Azcopy in the Backgrond
+USe Azure Storage Explorer if you prefer a GUL
+Use AzCOpy if you like COmmand line or you want to automate
+
+
+DAtabse  
+  aaplication              snapshot
+    |                     |
+      |                   |
+     database -------standbydatabase
+     
+ INcress AVAIABILTY AND DAurability of databases
+ 
+ inCREssing Availbity
+ Have multipal stondbys available or DIstribute the database
+  -in multipal ZOnes
+   -in multipal Regions
+   
+ INcreasiang DAURABILTY :
+ mULTIPAL copies of data (STandbys ,shapshots, transction logs and replicas)
+ --in multipal Zones
+  --in multipal Regions
+ Replicating Data COmes with ites own CHanllenges !
+  --We will talk about them a littel later
+  
+ how quickly we can recover from failure ?
+  RPO ( Recovery point objective) MAximum acceptable period of data losss
+ Rto ( Recovery Time bjective) : Maximum acceptable downtime
+Archieving minum RTo and Rpo is expensive
+Trade-off based on the critically of the data
+
+COnsistency
+storage COnsistancy - Sychonous replication to all replicas
+ -will be slow if you have multipal repicas or standbys
+Eventual COnsistency - Asynchronous replication. A little lag -few seconds before the chnage is availabe in all replicas
+ -in the intermediate period ,different replicas might return differnt values
+uSES when scalability is more important than data integrity
+Ex: sCOIAL media POsts - Facebook status messages, Twitter tweets Linked in posts etc 
+Read-after-Write COnstitency -- insetrs are immedialty available 
+-HOwever ,updates would have evntual constitency
+
+Relational DAtabases
+
+OlTp --(online Transaction Processing)
+Application  where large number of users make large number of small  transactions
+ --small data reads ,update and deletes
+ 
+ Use cases : make tranditional application -ERP. CRM e-commerce ,banking
+ 
+ Popular databases: 
+ Mysql oracal sql server etc
+ 
+ Azure Managed Service
+  AZURE sql Databases : MAnaged Microsoft Sql Server
+  Azure DAtabases Mysql : Mnaged Mysql
+  Azure DAtabases for PotgressSQL : MAnaged POtgressql
+  
+  Azure Sql DAtabase
+  
+ admin user: firstmysqlserver
+ password: mysql@123
+  firstsqlserver.mysql.database.azure.com
+  firstmysqlserver
+  
+  mysql --host=firstsqlserver.mysql.database.azure.com --user=firstmysqlserver -p
+  
+  Relational DAtabase --OLaP(online Analytics Processing)
+  Application Allowing Users to Analyze petabytes of data 
+   Ex: Repoting Application ,data ware house ,business intelligence application ,analytics System
+
+Sample application : Deside insurance premiums analyzing data from last hundred years 
+data is consolidataed from multipal(transactional) database
+ Recommands Azure Managed Service
+Azure Synapes Analytics: Petabyte-scale distribute data ware house
+ -provide a unifed exeprience for devloping end to end analytics solution -data integration+ ENterprice data Warehousing +big data analytics
+ENbales MPP (Massively parallel processing)
+RUn complex queries across petabytes of data
+Earier called Azure Sql DAta Warehouse
+
+OLAP (online analytics processing )
+Application Allowing users to analyze petabytes of data
+example: Reporting application ,data ware houses ,business intelligence application analytics systems
+Sample application : Deside insurance preminum analyzing data fom last hundred years
+ DAta is consolidated from multipal (trasnsactional ) databases
+
+REcommended Azure Managed Service
+ Azure Synapes Analytics : petabyte -scale distibuted data ware house
+ -- provides a unified experience for deplyoing end to end analytics solution -data integration + ENterprise data werehousing +big data analytics
+ENables MPP (Massively parallel processing)
+Run Complex queries across petabytes of data
+Earlier called Azure SQL data warehouse
+
+Azure Cosmos Db
+Fully managed NOSQl DAtabase service
+ Global database : Automatically replicated data across multipal Azure Region
+Schemaless
+ Single -digit millisecond responce times
+99.999 percet availablity
+Automatic scaling (Serverless)
+Support APIs for MongoDb (Document) Cassandra(key/value) and Gremlin(graph)
+
+In memory Databases
+
+Retriving data from memory is much faster than retriving data from disk
+
+IN memory databases like redis deliver microsecond letency by storing persistent data in memory
+Recommended Azure Managed Service
+ Azure Cache for REdish
+ Use cases: CAching Session management ,gaming leader bords ,geospatial applications 
+
+
+Networking
+
+Azure virtul Network
+Your own Isolated network i Azure
+Network traffic within a virtual Netwok is isolated (not visiable) from all other azure vitual networks
+Each virtual network is created in a region
+
+you control all the traffic coming in and going outside a vitual network
+
+(Best practise) create all your Azure resources (compute ,storage.databases etc) whithin a virtual Network
+
+Secure Resources from unauthorized access and
+Enable secure communication between your cloude resources
+
+Vitrual Network 
+
+Every vm in a vnet assigned  a private Ip Address
+-you can Assign a public ip address and make it static as well
+-VMs in the same Vnet can communicate using private Ip addresses
+eVEN if they are in different subnets
+
+--Network peering can be use to connect resources in different vitual Networks
+ -peered Vitual Networks can be in differnt regions
+ 
+ Azure DDOS
+(ddOS) attack : LArge scale attacks to bring your apps down 
+ Result : App goes down or become slow .HUge bill because of unlimited auto scaling.
+Two Azure DDOs Offering:
+DDOs protaction BAsic: protects Against common network layer attcks
+ -intelligenty identifies and block DDOs attacks
+--Enabled by defualt
+--NO extra cost
+
+-DDOs protaction Standard:
+ -Mitigates 60 differnt DDos attack types
+ provides attack analytics ,metric ,altering and reporting
+-get quick support from DDOs protaection RAPID responces (ddr)team
+Get a cost guarantee( recive Service cradit if DDOs Attack result in scale-out)
+Enable it on the Azure VItual network
+
+Azure Firewall 
+Managed network security service to control traffic in and out of a Azure Vitual Network
+
+STateful: Once traffic in is allowed,traffic out is automaticaly allowed
+centralized configuration: with one Azure firwall ,you can control traffic to mutipal virtual networks( having hundreds of resources) across multipal subscriptions
+Example : if you enterprise has 10 vitual networks (across multipal subscriptionS) with 100 VMS you can control traffic with one azure Firewall
+
+Itegrate with Azure Monitor : provides loggings and analytics
+
+Web application Firewall ( WAF)
+Restrict traffic into web application
+ --OWASP etc
+
+Network Security Groups(NSG)
+
+Azure Firewall is an external firewall - out side your VIrtual Network 
+--NETwork security group is like a internal firwall inside your Virtual Network right before your resources.
+
+Multipal inbound ANd outbound Security rules:
+
+Allow or block traffic  based on source/destination ip Address ,protocol and port
+Restrict traffic between resources such as vitual machines and subnets
+Attached with subnets and network interfaces
+
+Usecases: Allow access to web server only on port 80 and port 443
+(HTTP/HTTPS)
+Restrict database access only to web servers .Do NOt Allow direct access to database from outside world/other services.
+Restrict outbound traffic from VMS to dowload softwre packages and System updates
+  
+  
+  Azure Private LInk and priavte endpoint
+
+ web application running on Vm deployed to a subnet in a Vnet
+ Web application stores data in a sql databases( an azure managaed services)
+ 
+ Need : all communication needs to be private (using private ip address)
+ 
+ SOlution: setup private link and connect using private endpoint
+
+Azure private link: Enable access to azure paas services (azure storage Azure cosmosDb, Azure Sql databse) from resource in your Vnet using private endpoint.
+ALl data that flows from a Vm to Sql database is isolated from the inteernet and staye on the microsolft back end
+
+Security best practice -- defences in  depth
+
+A chain is only as strong as it its weekest link" secure at all levels
+Physical security: control access to physcial infrastructure (responsiblity of microsoft)
+
+Perimeter: Azure DDOS protaction +azure firewell
+
+Network: Restrict internet access( inbound and outbound)
+Restrict communication between resources
+
+COmpute: Secure access to vitual machines
+implement endpoint protaction
+Ensure that OS and software patches are applied
+
+Application : THink of security from day one
+Implement security best practises depending on language and framework 
+storage Secrretes in azure key valut
+DAta: encrpt data at rest and in transit
+
+
+Zero trust :
+microsoft 's modern security strategy
+
+Zero trust principle:
+verify explicitly : use info -identity ,location devices resource,data classification ,time
+use least privileage access Assume breach
+
+
+ CLoude computing: public vs private vs Hybrid clouds
+
+Cloude computing
+
+public cloude
+you host everything in the cloud ( you do need a data center abymore)
+no capital expenditure required
+Hrdware resource are owned by Azure(microsoft)
+Hd/w failure and security of the data center are managed by Azure 
+private cloude
+You host everything in your own data center
+
+Needs capital Expendituure
+INcur staffing and maintances expenses for insftrastures
+
+Delivers higher level of securtity and privacy
+
+Hybrid cloude
+COmbination of both (public/ private)
+
+Use public cloude for workloloads and private cloude for other
+
+Azure Arc
+ hybrid cloude solutin
+ 
+Azure Resource Hierarchy
+Hieararchy : Mnagement Group(s) >Subscription(s)>Resourcce Group(s) >Resources
+
+Resoures: VMS , Storage, DAtabases
+
+Resource Group : Organize resource by grouping them into Resource groups
+
+SubScription : MAnage COsts for resource provisioned for differnt temas or differnts projects or differnt business units
+
+management groups: Centralized managaemnet for access policy and compliance across multipal subscriptions
+
+Resource group
+Logical container for resources
+
+Associated with a single subscription
+Can have multipal resource
+ -- a Source can be associated with one and only resouces group
+can have resource from multipal rgions
+ deketing it deletes all resources under it
+
+Tages assigned to resource group are not automaticaly applied to resource
+ --However ,permission /roles assigned to user at the resource group level are inherited by all resources in the group
+Resource Groups( like managemnet groups) are free
+
+SUbscription
+YOu need a subscription to create resource in Azure
+YOu Azure Account can have multipal subscription ans multipal Account administrations
+when do you create a new subscrtipon?
+I want to manage differnt subscription access- management policies for differnt environments:
+ Create differnt subscription for different environmentS
+manage distict Azure subscription policies each environments
+
+I want to manage costs across differnt depratment of an organization:
+
+Create differnt subscription for differnt depratments
+Create separate biling reports and invoices for each subscription(for department) and manage costs
+
+MIcrosoft defender for cloud
+
+Cloude securtiy 
+
+Cloud security posture managment (cspm) Atomate identifiaction & remediation of security risks of your cloude configuration
+
+CLoud workload Protection(CWP): COntinuously monitior and fix threats to workloads deployed in the cloud
+
+Microsoft defender for cloud: Azure 's Solution for CSPM and CWP
+-Formerly called AZure security center
+ -protect your multicloude and hybrid cloud environmentS
+
+
+Azure Key vault
+ Secure store and access Secreats
+ Ex : APl keys passwords ,ceriticates ,or crypotograpic keys
+Provides access monitoring and access control for secrets
+DO not store secreat or passwords (example, database ,passwords) in your application code or configuration
+
+core A
+
+Authentication vs Authorization
+Authentication( is tt right user ?) and
+Authorization( do they have the right access?
+
+Azure active Directory
+
+AZure Active Directory (AZure Ad) 
+Active Directory Service in Azure
+--contorle entreprice users and their access to appliction and azure resources
+ - supports Azure and microsoft 365
+ - 99.9 % availbality SLA ( premium edition)
+ 
+ BUild Appliction and enable them to use SSO
+
+Azure AD Connect: Syncronize on premises active directory with Azure ad
+ Azure AD MFA : Authenticate users in multipal ways
+ MFA -multi factor authentication
+ --use 2 to 3 authentication method:
+   - somting you know typicaally password
+  -somting you have a trusted devices
+  - somting you are  for administrative account
+Recommendend for administarative account
+needs Azure active DIrectory identity protaection
+
+Azure Ad self-service PAssword reset : Global adminnistator can enable the featrue to allow users to reset passwords by themselves
+
+contional Acsess
+
+Azure Active DIRECTORY IS renamend ad Microsoft Entra id
+
+Active Directory (Ad) : Microsoft's very popular proprietart directory service
+
+Azure Active Directory(Azure Ad) : MAnaged Active DIrectory Service in Azure
+
+--Azure Ad is toned doen version of Ad ( works very differntly)
+  --azure Ad ( flate structure ) vs Ad ( hirechical with organization units -OUS and group polocy obejects -GPOS)
+  --Azure Ad ( web based protocol -Outh SAML ,open Id) vs AD( Kuberos,LDAP, NTLM)
+ WHta if you use managed domain service ( domain joining, group policy ,ldrp, and kerberos authentication ) with ad in Azure?
+use Azure active Directory DOmain Service( Azure Ad DS)
+
+Role -based Access COntol (RBAC)
+
+password less Authentication for azure Ad
+
+three passwordless Options
+ Windows Hello for business: credentials tired to users Pc
+
+ user pc 
+  - For enterprice users who alwayes perform tasks from their own designated windows PCS.
+  2. Microsoft authenticator app: Uses employee's phone for authenticaion
+2 FIDO2( Fast Identity ONline) Security keys:
+ FIDO : open standard for passwordless authentiction
+  FIDO2 : enable users to use common devices to authenticated to online service ( mobile and desktoP)
+
+Azure Advior :
+Automated Recomamedations to improve reliablity ,security & performance , achive operational excellence & reduce costs
+ -take immdeiate actions or shedule or dismiss
+ - support recommendation by subscription ,resource groups or service
+ step by step giudence and quicks actions for fast remidiation
+ gives you a total score :Score improves as you take remidal actions
+ Example recommendations:
+  Reliablity : protect your VM data from accidental deltion( identify Vma where backup isn't enabled)\
+ Reliablity : Create Azure service helath alerts to be notified when azure probelem affect you
+COst optimization: OPtimize vm spend by resizing or shutting dowm underutilized instance
+ cost Optimized : optimize spend for mysql ,and postgresql servers by right -sizing
+COst optimization : DElete unassociated public ip address save mony
+Cost optimization: use lifecycle management
+
+
+Azure Monitor :
+
+GAther analyze and visualize logs and metrics
+ --from azure and on premise resources
+ monitor resources across multipal subscription
+ proactivelty identify issues and trigger alerts/ atomated actions
+Things you can do with azure monitor
+ Application INsights: detect & diagonose application issuse
+ Vm insight : MOnitor performance & helath of your vms and vm sacle sets
+ COntanier insights: Monitor performance of container data extracted from loges
+ CReate smart alerts (sms ,email etc) and attempt to atomatically take corrective action 
+ -atomatically send an alert if an azure vm is stopped
+ -trigger alerts based on data in an azure log analytics woekspace
+ -Auto sacle based on thershold
+ Create visualization with azure dashbords
+ --collect data from monitored resources using azure monitor metracis
+ 
+
+Azure Service Helath :
+
+Personalized alerts and guidance for azure service issues
+ -Personalized based on your azure usange -subscriptions,services and regions
+ -notifies about azure service incidents & plnned maintence
+ Best place to know about outages ,issues and planned maintenance
+Best practice: Set up service health alerts
+ get notified about service issues
+ CHannels : email,sms. push notification, webhook etc
+Hierarchy : Azure status> Azure service Health> Azure Resource> Helath
+ Azure sTATUS: Global view of the helath of azure service and regions
+Azure service Helath: Personalized dashbord based on your Azure usage
+Azure Resource Helath: Provides information about the helath of your individual clude resources such as a specific vitual machine instance
+
+Azure Policy:
+HOw do you ensure that resources stay compliant with your policies?
+
+Create ,assign and manage policies
+ -Automatically ensure that resources stay compliant with standard ans SLAs 
+Manage compliance of resource across multipal subscriptions
+Assigned to a managemt group ,a single subscription or a resource group
+Initives: Group of policies
+Azure provides some predefined initiatives:
+azure secureity becncmark Uk OFFICAL and UK NHS ,HIPAA etc
+View them under policy > authring > definitions
+COmpliance dashbord: Aggregated view of the overall compliance with options to drill dowm to specific resource/policy
+Use cases: Governance for resource consistencey ,regulatory compliances ,securiy cost and managemnt
+
+
+AZure BLuprints:
+one or more of (policy +role +ARM template + Resource Group ) configurations
+ Differnt pre -built blueprints availabe
+ -austarian govermaent UK offical ,azure security ,benchmark basic netwoking common policies (set of popular  policies to appley to a subscription) FedRamp HIPPa etc 
+YOu  achitecture team can createe blue prints adhring to your organization 's standard pattaern and requirements
+ ANd your teams use the blue prints to create azure resources
+ - BLUEprints can be assigend to individual subscription
+ -Blueprints can be used to set up resource grpup whithn subscriptions
+Helps teams to quickly set up environments adhering to organizational standards 
+ - you can even setup an atomated ci/cd pipeline
+
+Resource Locks
+ Prevent accidental deltion/modification of resources
+Applicable at multiple levels: SUbscription ,resource group or resource 
+  -azureresource inherits locks from its resources group and subscriptionS
+ Two optionS:
+Cannotdelete and readonly
+
+Locked resource should be unlocked before it can be changed( even by owners)
+ Two options:
+ Read only LOck: AUthorized userd can read but they can't delete or update the resource
+Cannot delete : Authorized users can read and modify but they can't delete the resource
+
+Ex: if a resource group has a delete lock then administator can first removes delete lock before she can delete the resources
+ you can have multipal locks at differnt levels
+
+Azure -privacy & information protaction
+
+Microsoft privacy stattemet 
+product terms site
+data protaction addendum
+Azure information protection
+
+compliance :
+Depending on the domain of your entraprice ,yoy need to ahrere to serveal industry and security standards( in addition to corporate and regulatory policies)
+
+you are using services provides by azure and storing data in Azure
+
+what standards & regulation does azure service adhere to?
+  service trust portal :
+HOw  does azure help you with compliance?
+ Azure compliance hub:
+Azure security hub:
+Azure compliance and compliance bluprint:
+azure compliacnce Manager: prat of service trust portal
+
+
+Azure SOverreign regions:
+azure global
+Azure GOvernment
+Azure  chine  21vianet
+Azure germany 
+
+Expenditure Modals : CApEX vs OPEx
+
+Capital Expenditure (CapEx) : Money spent to buy infrastructure
+ Additional cost to maintain infrastructure with time
+  you might need a team to manage the infrastructure 
+ Ex: Deployeing your own data center with physical servers
+ ex: purchaasing Azure reserved Vm instances
+ Ex: Leasing Softeare
+ OPerational Expenditure( opEx) : MONY SPent to use a service or a product 
+
+ Zero upfront costs
+ you pay for services as you use them ( pay-as -you go model)
+ Ex: provisionning VMs as you need them
+ ex : using azure Function and paying forinvocations
+ 
+HOw is cost deside?
+ Resource TYpe and configuration 
+ useage meters
+ AZure sUBscription type
+ azure marketpalce
+ which region
+ DAtatransfer
+
+Azure Cost Management 
+ SetUP and manage your account
+Configure subscription ,manage invoices and payement methods
+
+ANALYZE and optimize cloud costs
+Break down and analyze costs to get a deeper understanding of cost and usage patterns
+
+COntrol and optimize costs
+
+Tags : 
+
+identify applications environments or business units that is sepecific resource is associated with
+ report and track costs for a group of resoure by assiging them with the same tag
+ group resources based on their SLA security or compliance requirements
+ Best practice: Identify mandatory tags that all resource should have enforce it using azure policy
+ ex : environment ,businessUnit ,priority
+ Tags for resources are not inheritaed by defult from their resource Group
+
+Azure Migrate 
+centaral hub to manage your Azure migration
+ A host of tools are offered under the umbrealla of Azure migreate 
+1. Azure mIGrate - DISCovery an Assesments: Assess migration for on premiss servers ,application and data
+ 2. Azure migrate: Server Migration : MIgrate your VMS (from your data center and other cloude) to AZure
+3. AZURE dATABASE Migration Service : Migrate DAtabase to Azure
+4.web app migration assistant : migrate web apps to Azure app Service
+5.AZure DATA box : OFFICE data transfer to Azure
+
+Devopes
+
+Azure Devopes CI CD tools
+
+Azure Repos : private source contol (git)
+ alternative github -public and private source contol
+AZure pipelines - Ochaestrate CI/CD piplelines
+Azure Bords -Scrum,agile and kanban artifacts
+Azure Test Plans -Automation Test tool to check sofetware quality
+ intigarate into your CI/CD pipliens
+ 
+ LOgic Apps 
+  serverless orchestration service:
+ Recommended for orchestrating long-running processes and workflows 
+LOw -code/no- code solution
+Provide web-based designer with easy to use GUI
+
+LInk triggers to actions
+ Trigger : an event you want to react to:
+  When there are more than x number of messages in the queue OR
+ when you recive a office 365 outlook email OR
+  at regular interval (shedual )
+Action : what do you want to do?
+ send an email or
+  send a message on the queue
+
+Azure Security center
+Security posture management & threat proteaction for hybrid cluod workloads
+ Microsoft implements serveal types of control to secire Azure
+ HOwever ,you need to take addtional action to secure your workloads
+ How do you deside what actions to take?
+ 
+ Two main goals:
+ TO help you understand your current security situation
+ Centralized Management of security policies
+ Monitor your compliance angaist regulatory requirements( ex: payments card industry's data security standard (PCL DSS ) iso 27001
+  - option download regulatoty compliance report
+Provide a Azue secure score
+ -To  improve secure score, adhare to more securirt controls
+ 
+ Azure Sentinel
+  INtelligent security analytics for your entire entrprise
+
+Security information and event managemnt (SIEM) solution
+
+Detect threts and respond fast using AI
+ Behavior analytics to stay ahead of evolving threats
+
+FOur phases:
+COllect
+detect
+investigate 
+respond
+
+Azure Sevice Leval Agreement (SLA)
+
+Service Level Agreement (sla) : " Formal agreement between service provider and the service customer(or  consumer)"
+sla for individual Azure Service
+
+If Azure is uadble to meet SLa ,you can request for a "server creadit"
+
+IOt in Azure 
+
+AZure Iot HUb -Managed message hub for Iot devices
+programetic reporting and IoT device managment
+
+Azure IOt Centaral : Iot hub + deshbord
+
+Reporting and managment with a simple user interface
+REcommanded to be able to genrate and access reports from the Azure portal
+
+Azure Sphere : End -to End Iot solution with device tempering detation
+
+Hardware (micro -controller unit) + software + end to end security
+
+Recommanded for high security usecase: ATMs , Point od sals devices
+
+
+Azure Big data  
+
+Azure Synapse analytics 
+ 
+ Azure HDInsight ---hadoop
+
+Azure Databricks -- build al solution using python scale r java and sql support popular data science fremworks and libaries tensorflow pytorch and scikit learn
+
+
+MAchine Learning In Azure 
+
+Azure Congnitive services services  --pre built machine learning method  
+ speech service :
+  vision service:
+   decision service
+
+Azure BOt service-- talk with human like a human 
+                    vitual agaents (inteligent entraprise -grad bots )
+                    
+Azure Machine Learning : quickly build and deploy modals programmatically & visually ( end to end machine learning life cycle)  
+
+                 
+    
+
+  
+
+
+
+
+
+
+
+
