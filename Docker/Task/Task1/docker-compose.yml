@@ -1,0 +1,25 @@
+version: '3.3'
+
+networks:
+  dev:
+  uat:
+  prod:
+
+services:
+  container-1:
+    image: nginx
+    networks:
+      - dev
+    container_name: container_1
+
+  container-2:
+    image: nginx
+    networks:
+      - uat
+    container_name: container_2
+
+  container-3:
+    image: nginx
+    networks:
+      - prod
+    container_name: container_3

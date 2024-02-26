@@ -44,6 +44,7 @@ Standard SSD Managed Disks: 99.5%
 Standard HDD MAnaged Disks:95%
 
 Two or more instance in same AVailability Set 99.95%
+Availabity set : Logical Grouping of VMS
 Fault DOmains: Group of VMS sharing a common power source and network switch
 Update Domains :Group of VMS that are rebooted(updated) at the same time
 
@@ -945,10 +946,12 @@ Azure BOt service-- talk with human like a human
 Azure Machine Learning : quickly build and deploy modals programmatically & visually ( end to end machine learning life cycle)  
 
                  
-    
+   
+   first-mysql-server  ---username  ---firstmysqlserver
+   Honey@123
 
-  
 
+  mysql --host=first-mysql-server.mysql.database.azure.com --user=firstmysqlserver -p
 
 
 
