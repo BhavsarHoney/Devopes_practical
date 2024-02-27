@@ -1,0 +1,13 @@
+pipeline {
+    agent any 
+    
+    stages {
+        stage("Demo"){
+           myFunc("Hello from the demo stage")
+        }
+    }
+}
+
+def myFunc(String myText){
+       echo "myText is set to : ${myText}"
+}

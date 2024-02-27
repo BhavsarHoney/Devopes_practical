@@ -1,0 +1,32 @@
+pipeline{
+    agent any 
+    stages{
+        stage("Stage 1"){
+            steps{
+                echo "this is stage 1"
+            }
+        }
+        stage("Stage 2"){
+            steps{
+                echo "this is stage 2"
+            }
+        }
+        stage("Stage 3"){
+            steps{
+                echo "this is stage 3"
+            }
+        }
+        stage("Stage 4"){
+            steps{
+                echo "this is stage 4"
+            }
+        }
+        stage("Stage 5"){
+            steps{
+                build job: 'pipilineboolen',parameters : [[ $class: 'BooleanParameterValue',name:'myBoolean' ,value :true]]
+                echo "this is stage 5"
+            }
+        }
+
+    }
+}
