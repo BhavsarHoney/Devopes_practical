@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    parameters{
+
+        booleanParam(defalutValue:false,description: "ENbale service",name:"myBoolen")
+
+    }
+    stages{
+        stage("Demo"){
+            steps{
+                echo "booleanPAram is set  to : ${params.myBoolen}"
+            }
+        }
+    }
+}
