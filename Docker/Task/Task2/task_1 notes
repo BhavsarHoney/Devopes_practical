@@ -1,0 +1,35 @@
+
+Task 1
+
+step 
+
+1.docker compose -d
+
+create one network 
+2. docker create network mynetwork
+
+3. docker network connect mynetwork container_1
+
+4. docker network connect mynetwork container_2
+
+5. docker network connect mynetwork container_3
+
+
+(optional) 
+
+6. docker inspect mynetwork
+
+go inside one conatiner and check
+
+7. docker exec -it container_1 /bin/bash
+
+8. ping container_2
+   (if ping command is not found then install using 
+    this coomand 
+     apt-get update
+      apt-get install inetutils -ping)
+9. ping container_3
+
+ repete step 7,8,9 for other container
+
+
