@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'BRANCH', choices: gitBranches(), description: 'Select branch to display code')
+    }
+
+    stages {
+        stage('Checkout and Display Code') {
+            steps {
+                script {
+                     
+                    def branchName = params.BRANCH
+                    echo "Selected branch: ${branchName}"
+
+                    // Checkout the selected branch
+                    checkout([$class: 'GitSCM', branches: [[name: "*/${branchName}"]], userRemoteConfigs: [[url: gitUrl]]])
+
+                    // Display the content of a file (e.g., hello.txt)
+                    sh 'cat hello.txt'
+                }
+            }
+        }
+    }
+}
+
+def gitUrl = "https://github.com/BhavsarHoney/Devopes_Jenkins_Task.git"
+
+def gitBranches() {
+    return "git ls-remote --heads ${gitUrl}".execute().text.readLines().collect {
+        it.split()[1].replaceAll("refs/heads/", "")
+    }.sort().reverse()
+}
