@@ -1,0 +1,225 @@
+COmputer networking 
+
+NIC network interface card
+
+
+start tepology - one in  center and other are connecte with other
+mac address
+
+ipconfings
+ifconfigs
+
+lan =local area network
+ethernet is used to connect
+
+hubs bridge and switchs
+ 
+ hub :
+ 
+
+hub  --ONE device directly conected to other device 
+switch -- a switch is a broadcast domain
+
+unicast --one system is connected to one syetem 
+broadcast domain
+
+osi model
+
+layer 7 application layer   all
+layer 6 presention layer    peopel
+layer 5 session layer       seem
+layer 4 tranport  layer     to      TCp/UDP Port
+layer 3 Network layer       Need     SEc/DSTip
+layer 2 Data lInk layer     DAta      mac address
+layer 1 Physical layer      Processing
+
+
+
+layer 2 Ethernet ,wifi,fiber channecl etc
+layer 5,6,7 payload 
+layer 4 TCp (FTp,http) and UDP (Dns,NtP)
+
+
+protocol ---set of rules
+what is arp ?
+ARP stands for Address Resolution Protocol. It is a communication protocol used to map an IP (Internet Protocol) address to a corresponding MAC (Media Access Control) address in a local network. The primary purpose of ARP is to facilitate communication between devices within the same subnet.
+arp -a
+differnce between router and switch
+A router operates at the network layer and makes decisions based on IP addresses, while a switch operates at the data link layer and uses MAC addresses to forward data within a local network.
+ROuters
+
+Ip address 
+
+10.1.1.11  --ocatets  
+sunet calcultor.com 
+
+10.1.1.0/24
+network address :10.1.1.0
+Default Gatway :10.1.1.1
+brodcast Address : 10.1.1.255
+usable :10.1.1
+
+packet walk :
+payload :srcip/destip/srcmac/dstmac
+
+access port:sigale vlan
+trun port : connected multipal vlan 
+
+Vlans -logical sectmentation
+each vlan has a subnet
+
+Wans :
+wide area network
+
+egge routers: at the ege of the networks
+
+static routes need to manually network
+
+dyanamic routes : bgp
+
+falute routes: getways 
+
+ipsec vpns
+iterdaces with public ips
+secure connection over internate
+
+Layer 2 VPNS
+
+L2Vpn extend a segemet
+Disaster revovery
+
+Network Reduandancy:
+
+single point failure 
+daynamic routing protocol
+ahrc vvrp 
+atomatically redundancy --
+
+Network Troubleshooting
+
+Dhcp :  Dynamic Host Configuration Protocol.
+configure ip addresss
+
+Dns Server :
+
+Dns :converts domanin name in to ip address
+nslookup  
+
+private ip address 
+10.0.0.0 to 10.255.255.255 
+172.16.0.0 to 172.31.255.255
+192.168.0.0 to 192.168.255.255
+public ip address
+
+NATS
+
+wifi
+Wireless LAn:
+2.4 Ghz 150feet/ 45 Meters(indoor)
+300 Feet /90 Meters(outdoors)
+
+5Ghz
+50Feet/15 Meters(indoors)
+Appx.1300 Mbps max speed
+
+ laptop - wlan controolr
+          wifi access point --switch --router
+
+ssid service set identifier
+
+netflow / ipFix
+ netflow --devlop by cisoe
+  visibility in network traffic
+netflow collectoor: 
+
+ipfix:
+
+ntp :Network time protoclo
+
+network should have an authoritative time source
+traffic flows over udp  port 123
+ntp is easy as 123
+we can get the current time from the 
+
+
+ip addressing
+
+mac address -- localy find device 
+ip address ---  it is like home address
+
+public and private ip address:
+
+nat -network address translation
+             
+ipv4 address -192.168.0.6   
+subnet mask 255.255.255.0
+default gatways 192.168.0.1
+
+classful vs classless addressing :
+
+0.0.0.0 -255.255.255.255
+
+class A address range 1.0.0.0 -127.0.0.0
+16,777,214 devices 
+
+class b address 128.0.0.0 to 191.255.0.0
+65,534devices
+
+class c address ranges 192.0.0.0 to  223.255.255.0
+254 devices
+
+binary and decimal :
+
+135 -->  128 64 32 16 8 4 2  1
+         1    0  0 0  0 1 1  1
+
+192.168.1.135
+
+192   1 1 0 0 0 0 0 0
+168   1 0 0 1 0 1 0 0 
+1     0 0 0 0 0 0 0 0
+135   
+
+
+why 255 ?
+128+64+32+16+4+2+1
+
+why is subnetting necessary?
+
+subnetting is the practice of dividing a larger computer network into smaller,more manageable segments to improve network effciency,security and ip address allocation
+
+
+working with subnets and ciDR
+
+10.1.1.43
+255.255.255.0
+
+cidr notation //////
+network addreass 
+host addresaa
+how many host are ther?
+
+
+
+255.255.255.0 convernt to cidr notation 
+
+NETwork address 
+host addres 
+ip range 
+usable address
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
